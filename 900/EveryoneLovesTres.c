@@ -1,38 +1,33 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-void make_numbers(int index,char num[],int *n,int temp,int limit){
-    if(index==limit){
-        int num1 = atoi(num);
-        if(num1%33==0 && num1%66==0){           
-            temp=num1;
-            if(temp<*n){
-                *n=temp;
-            }
-        }
-        return;
-    }
-    num[index]='3';
-    make_numbers(index+1,num,n,temp,limit);
-    num[index]='6';
-    make_numbers(index+1,num,n,temp,limit);
-}
 
 int main(){
-    int size;
+    int size,num;
     scanf("%d",&size);
-    for(int i=0; i<size;i++){
-        int n=INT_MAX,temp=0,limit;
-        scanf("%d",&limit);
-        char num[limit];
-        num[limit] = '\0';
-        make_numbers(0,num,&n,temp,limit);
-        if(n==INT_MAX){
-            printf("-1\n");
+    for(int j=0; j<size;j++){
+        scanf("%d",&num);
+        char numch[num];
+        if(num%2==0){
+            for (int i=0;i<num-2;i++){
+                numch[i]='3';
+            }
+            numch[num-2]='6';
+            numch[num-1]='6';
+            numch[num]='\0';
+            printf("%s\n",numch);
         }else{
-            printf("%d\n",n);
+            if(num>4){
+                for (int i=0;i<num-4;i++){
+                    numch[i]='3';
+                }
+                numch[num-4]='6';
+                numch[num-3]='3';
+                numch[num-2]='6';
+                numch[num-1]='6';
+                numch[num]='\0';
+                printf("%s\n",numch);
+            }else
+                printf("-1\n");
         }
     }
     return 0;
 }
-
