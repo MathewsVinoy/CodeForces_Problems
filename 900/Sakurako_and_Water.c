@@ -4,6 +4,7 @@ int main(){
     for(int i=0;i<2;i++){    
         for(int j=0;j<2;j++){    
             if(array[i][j]<0){
+                sum=sum+0-array[i][j];
                 printf("%d",0-array[i][j]);
             }    
         } 
