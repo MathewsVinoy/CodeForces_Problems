@@ -1,10 +1,7 @@
 #include <stdio.h>
-
 int main() {
     int n1, n2, temp[500], sum = 0;
     scanf("%d%d", &n1, &n2);
-    // if (n2 <= 0 && n1 <= 0) {
-    //     printf("1\n%d", n1);
     if (n2 <= 0 || n1 <= 0) {
         printf("3\n");
         for (int i = 0; i < 2; i++) {
