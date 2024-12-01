@@ -18,7 +18,7 @@ int main() {
             temp[i] = n2;
             sum += n2;
         }
-        int out = n1 - (sum % n1);
+        int out = (n1*n1)-sum;
         temp[n1 - 1] = out;
         for (int i = 0; i < n1; i++)
             printf("%d ", temp[i]);
