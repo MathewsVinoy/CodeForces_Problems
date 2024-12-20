@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 int main(){
 	int t,w,b,sum=0;
 	scanf("%d",&t);
