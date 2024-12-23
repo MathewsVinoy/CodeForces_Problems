@@ -8,13 +8,46 @@ int main(){
 	for(int i=0;i<t;i++){
 		int flag=1;
 		scanf("%s",&str);
+		int cal=0;
 		if((atoi(str)%9)==0)
 			flag=0;
-		strcpy(temp,str);
-		for(int j=0;j<strlen(str);j++){
+	
+		// for(int j=0;j<strlen(str);j++){
+		// 	int num1=temp[j]-'0';
+		// 	cal=cal+num1;
+		// }
+		// if(cal%9==0)
+		// 	flag=0;
+		if(flag!=0){
 			strcpy(temp,str);
-			for(int k=0;k<strlen(str);k++){
-				if(j!=k){
+			for(int j=0;j<strlen(str);j++){
+				strcpy(temp,str);
+				for(int k=0;k<strlen(str);k++){
+					if(j!=k){
+						int num1=temp[k]-'0';
+						if(num1<=3){
+							int prod=num1*num1;
+							temp[k] = prod+'0';
+							if((atoi(temp)%9)==0){
+								flag=0;
+								break;
+							}
+						}
+					}
+				}
+			}
+			for(int j=0;j<strlen(str);j++){
+				strcpy(temp,str);
+				int num1=temp[j]-'0';
+					if(num1<=3){
+						int prod=num1*num1;
+						temp[j] = prod+'0';
+						if((atoi(temp)%9)==0){
+							flag=0;
+							break;
+						}
+					}
+				for(int k=0;k<strlen(str);k++){
 					int num1=temp[k]-'0';
 					if(num1<=3){
 						int prod=num1*num1;
@@ -23,29 +56,6 @@ int main(){
 							flag=0;
 							break;
 						}
-					}
-				}
-			}
-		}
-		for(int j=0;j<strlen(str);j++){
-			strcpy(temp,str);
-            int num1=temp[j]-'0';
-				if(num1<=3){
-					int prod=num1*num1;
-					temp[j] = prod+'0';
-					if((atoi(temp)%9)==0){
-						flag=0;
-						break;
-					}
-				}
-			for(int k=0;k<strlen(str);k++){
-				int num1=temp[k]-'0';
-				if(num1<=3){
-					int prod=num1*num1;
-					temp[k] = prod+'0';
-					if((atoi(temp)%9)==0){
-						flag=0;
-						break;
 					}
 				}
 			}
