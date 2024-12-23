@@ -1,69 +1,36 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
+
 int main(){
-	int n,t;
-	char str[100],temp[100],c;
+	int t;
 	scanf("%d",&t);
-	for(int i=0;i<t;i++){
-		int flag=1;
+	char str[100000];
+	while(t--){
 		scanf("%s",&str);
-		int cal=0;
-		if((atoi(str)%9)==0)
-			flag=0;
-	
-		// for(int j=0;j<strlen(str);j++){
-		// 	int num1=temp[j]-'0';
-		// 	cal=cal+num1;
-		// }
-		// if(cal%9==0)
-		// 	flag=0;
-		if(flag!=0){
-			strcpy(temp,str);
-			for(int j=0;j<strlen(str);j++){
-				strcpy(temp,str);
-				for(int k=0;k<strlen(str);k++){
-					if(j!=k){
-						int num1=temp[k]-'0';
-						if(num1<=3){
-							int prod=num1*num1;
-							temp[k] = prod+'0';
-							if((atoi(temp)%9)==0){
-								flag=0;
-								break;
-							}
-						}
-					}
-				}
-			}
-			for(int j=0;j<strlen(str);j++){
-				strcpy(temp,str);
-				int num1=temp[j]-'0';
-					if(num1<=3){
-						int prod=num1*num1;
-						temp[j] = prod+'0';
-						if((atoi(temp)%9)==0){
-							flag=0;
-							break;
-						}
-					}
-				for(int k=0;k<strlen(str);k++){
-					int num1=temp[k]-'0';
-					if(num1<=3){
-						int prod=num1*num1;
-						temp[k] = prod+'0';
-						if((atoi(temp)%9)==0){
-							flag=0;
-							break;
-						}
-					}
+		int sum=0,two=0,three=0,flag=0;
+		for(int i=0;i<strlen(str);i++){
+			if(str[i]=='2')
+				two++;
+			else if(str[i]=='3')
+				three++;
+
+			sum+=(str[i]-'0');
+			sum%=9;
+		}
+		for(int i=0;i<=three;i++){
+			for(int j=0;j<=two;j++){
+				long tsum=sum;
+				tsum+=j*2+i*6;
+				if(tsum%9==0){
+					flag=1;
+					break;
 				}
 			}
 		}
-		if(flag==0)
+		if(flag==1)
 			printf("YES\n");
 		else
-			printf("No\n");
+			printf("NO\n");
 	}
 	return 0;
 }
