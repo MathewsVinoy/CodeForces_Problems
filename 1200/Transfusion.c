@@ -17,13 +17,6 @@ int main(){
 					a[i-1]--;
 					a[i+1]++;
 				}
-			}else if(a[i-1]<a[i+1])
-			{
-				while((a[i-1]==a[i]&&a[i+1]==a[i])||a[i-1]>a[i+1])
-				{
-					a[i-1]++;
-					a[i+1]--;
-				}
 			}
 			printf("%d %d %d ",a[i-1],a[i],a[i+1]);
 			if(a[i-1]==a[i])
